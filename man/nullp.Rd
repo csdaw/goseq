@@ -29,6 +29,9 @@ A numeric vector containing the data on which the DE may depend.  Usually this i
   \item{plot.fit}{
 Plot the PWF or not?  Calls \code{\link{plotPWF}} with default values if \code{TRUE}.
 }
+  \item{...}{
+Other arguments to be passed to \code{\link{makespline}}.
+}
 }
 \details{
 It is essential that the entire analysis pipeline, from summarizing raw reads through to using \code{goseq} be done in just one gene identifier format.  If your data is in a different format you will need to obtain the gene lengths and supply them to the \code{nullp} function using the \code{bias.data} arguement.  Converting to a supported format from another format should be avoided whenever possible as this will almost always result in data loss.

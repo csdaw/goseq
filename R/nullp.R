@@ -6,7 +6,7 @@
 #Date Modified: 20/12/2010
 
 
-nullp = function(DEgenes, genome, id, bias.data=NULL, plot.fit=TRUE){
+nullp = function(DEgenes, genome, id, bias.data=NULL, plot.fit=TRUE, ...){
 	#Input Checking
 	if(!is.null(bias.data) & length(bias.data)!=length(DEgenes)){
 		stop("bias.data vector must have the same length as DEgenes vector!")
@@ -24,7 +24,7 @@ nullp = function(DEgenes, genome, id, bias.data=NULL, plot.fit=TRUE){
 	#May not have bias data for some of the entries, return NA at those positions
 	pwf=rep(NA,length(DEgenes))
 	w=!is.na(bias.data)
-	pwf[w]=makespline(bias.data[w],DEgenes[w])
+	pwf[w]=makespline(bias.data[w],DEgenes[w], ...)
 
 	#Make a data frame which contains all the data used to make the fit and the fit itself
 	out=data.frame(DEgenes=DEgenes,bias.data=bias.data,pwf=pwf,stringsAsFactors=FALSE)
